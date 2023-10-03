@@ -5,6 +5,7 @@ import {CartPageComponent} from './components/cart-page/cart-page.component';
 import {MainPageComponent} from './components/main-page/main-page.component';
 import {ShopLayoutComponent} from './components/shop-layout/shop-layout.component';
 import {RouterModule} from '@angular/router';
+import {InputModule} from '../shared/modules/input/input.module';
 
 const routes = [
   {
@@ -25,6 +26,6 @@ const routes = [
     MainPageComponent,
     ShopLayoutComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [CommonModule, InputModule, RouterModule.forChild(routes)],
 })
 export class ShopModule {}
