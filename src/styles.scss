@@ -2,3 +2,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+@layer base {
+  :root {
+    --sidebar-width-sm: 64px;
+    --sidebar-width-md: 240px;
+  }
+}
