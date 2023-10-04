@@ -1,4 +1,7 @@
-<a class="rounded-3xl shadow-cardShadow block" routerLink="">
+<a
+  class="rounded-3xl shadow-cardShadow block"
+  [routerLink]="['/', 'product', '123']"
+>
   <div class="max-w-full overflow-hidden rounded-3xl h-[30vh] relative">
     <img class="h-[30vh] w-full object-cover" src="assets/1.png" alt="" />
     <div class="absolute left-5 top-5 bg-white px-3.5 py-1 rounded-full">
@@ -7,9 +10,9 @@
     <button
       pa-button
       pa-size="sm"
-      class="absolute right-5 top-5 w-9 h-9 flex justify-center items-center border-none "
+      class="absolute right-5 top-5 w-9 h-9 flex justify-center items-center border-none"
     >
-    <ng-icon name="jamShoppingCart"></ng-icon>
+      <ng-icon name="jamShoppingCart"></ng-icon>
     </button>
   </div>
   <div class="relative py-5 px-5">
