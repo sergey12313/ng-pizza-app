@@ -1,0 +1,60 @@
+<div class="flex flex-col gap-5">
+  <header class="flex gap-2 items-center">
+    <button
+      pa-button
+      pa-size="sm"
+      pa-appearance="no-border"
+      class="flex justify-center items-center px-1"
+    >
+      <ng-icon name="jamArrowLeft"></ng-icon>
+    </button>
+    <pa-heading class="!text-base md:!text-3xl">Наслаждение</pa-heading>
+    <button
+      pa-button
+      pa-size="md"
+      class="ml-auto flex justify-center items-center gap-2 w-10 h-10 p-0 md:w-auto md:h-auto md:px-3 md:py-2"
+    >
+      <ng-icon name="jamShoppingCart"></ng-icon>
+      <span class="hidden md:block">В корзину</span>
+    </button>
+  </header>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="overflow-hidden rounded-2xl h-[40vh] w-full">
+      <img
+        class="w-full h-full object-cover"
+        src="assets/1.png"
+        alt="product"
+      />
+    </div>
+    <div
+      class="flex flex-col gap-4 md:justify-stretch md:max-w-[340px] lg:max-w-[440px] text-base"
+    >
+      <div class="flex justify-between border-separator border-b pb-2 text-lg">
+        Цена
+        <div class="flex gap-1 items-center">
+          300
+          <span class="text-sm font-light text-muted">₽</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between border-separator text-lg items-center">
+        Рейтинг
+        <div
+          class="bg-white flex gap-0.5 rounded-full py-1 px-2 shadow-md -top-3.5 left-5 items-center"
+        >
+          4.5
+          <ng-icon name="jamStarF" class="text-orange-400"></ng-icon>
+        </div>
+      </div>
+      <div>
+        <p class="pb-3">Состав:</p>
+        <ul class="text-muted font-light">
+          <li><span class="text-xs align-middle">●</span> Салями</li>
+          <li><span class="text-xs align-middle">●</span> Pуккола</li>
+          <li><span class="text-xs align-middle">●</span> Помидоры</li>
+          <li><span class="text-xs align-middle">●</span> Оливки</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

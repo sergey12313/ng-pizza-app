@@ -1,25 +1,25 @@
 <ng-container *ngIf="level === 1">
-  <h1><ng-container *ngTemplateOutlet="content"></ng-container></h1>
+  <h1 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h1>
 </ng-container>
 
 <ng-container *ngIf="level === 2">
-  <h2><ng-container *ngTemplateOutlet="content"></ng-container></h2>
+  <h2 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h2>
 </ng-container>
 
 <ng-container *ngIf="level === 3">
-  <h3><ng-container *ngTemplateOutlet="content"></ng-container></h3>
+  <h3 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h3>
 </ng-container>
 
 <ng-container *ngIf="level === 4">
-  <h4><ng-container *ngTemplateOutlet="content"></ng-container></h4>
+  <h4 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h4>
 </ng-container>
 
 <ng-container *ngIf="level === 5">
-  <h5><ng-container *ngTemplateOutlet="content"></ng-container></h5>
+  <h5 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h5>
 </ng-container>
 
 <ng-container *ngIf="level === 6">
-  <h6><ng-container *ngTemplateOutlet="content"></ng-container></h6>
+  <h6 class="heading"><ng-container *ngTemplateOutlet="content"></ng-container></h6>
 </ng-container>
 
 <ng-template #content>

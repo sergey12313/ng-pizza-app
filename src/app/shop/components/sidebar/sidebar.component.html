@@ -1,7 +1,7 @@
 <div class="flex h-full flex-col items-center py-5 gap-5 md:p-8 md:items-start">
   <pa-avatar imgUrl="assets/user.png" name="sergey razuvaev"></pa-avatar>
   <div class="hidden md:block">
-    <h3 class="font-bold text-xl">Сергей Разуваев</h3>
+    <h3 class="font-semibold text-xl">Сергей Разуваев</h3>
     <p class="text-[#9ea1b1] text-sm">serg@ya.ru</p>
   </div>
   <nav class="flex gap-5 flex-col">
@@ -11,19 +11,19 @@
       [routerLinkActiveOptions]="{exact: true}"
       class="link"
     >
-      <img src="assets/menu-icon.svg" alt="menu icon" />
+    <ng-icon name="jamDocument"  class="link__icon"></ng-icon>
       <span>Меню</span>
     </a>
     <a [routerLink]="['cart']" class="link" routerLinkActive="link_active">
-      <img src="assets/cart-icon.svg" alt="menu icon" /><span>Корзина</span>
+      <ng-icon name="jamShoppingCart" class="link__icon"></ng-icon><span>Корзина</span>
     </a>
   </nav>
   <button
     pa-button
     pa-size="sm"
-    class="flex mt-auto items-center gap-2 !p-1.5 md:!pl-2 md:!pr-3 md:!py-2"
+    class="flex mt-auto items-center gap-2 p-1.5 md:!pl-2 md:!pr-3 md:!py-2"
   >
-    <img src="assets/logout-icon.png" width="32" h="32" alt="logout icon" />
+  <ng-icon name="jamPower" size="30px"></ng-icon>
     <span class="hidden md:block">Выйти</span>
   </button>
 </div>

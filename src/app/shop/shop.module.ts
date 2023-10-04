@@ -11,6 +11,20 @@ import {HeadingModule} from '../shared/modules/heading/heading.module';
 import {SidebarComponent} from './components/sidebar/sidebar.component';
 import {AvatarComponent} from './components/avatar/avatar.component';
 import {ProductCartComponent} from './components/product-card/product-cart.component';
+import {CartProductCartComponent} from './components/cart-product-cart/cart-product-cart.component';
+import {NgIconsModule} from '@ng-icons/core';
+import {
+  jamPlus,
+  jamMinus,
+  jamDocument,
+  jamShoppingCart,
+  jamClose,
+  jamStarF,
+  jamArrowLeft,
+  jamPower,
+  jamSearch,
+} from '@ng-icons/jam-icons';
+import {ProductPageComponent} from './components/product-page/product-page.component';
 
 const routes = [
   {
@@ -20,6 +34,7 @@ const routes = [
       {path: '', component: MainPageComponent},
       {path: 'cart', component: CartPageComponent},
       {path: 'success', component: SuccessPageComponent},
+      {path: 'product/:id', component: ProductPageComponent},
     ],
   },
 ];
@@ -33,6 +48,8 @@ const routes = [
     ShopLayoutComponent,
     SidebarComponent,
     AvatarComponent,
+    CartProductCartComponent,
+    ProductPageComponent,
   ],
   imports: [
     CommonModule,
@@ -40,6 +57,17 @@ const routes = [
     ButtonModule,
     HeadingModule,
     RouterModule.forChild(routes),
+    NgIconsModule.withIcons({
+      jamPlus,
+      jamMinus,
+      jamDocument,
+      jamShoppingCart,
+      jamClose,
+      jamStarF,
+      jamArrowLeft,
+      jamPower,
+      jamSearch,
+    }),
   ],
 })
 export class ShopModule {}

@@ -1,1 +1,38 @@
-<p>cart-page works!</p>
+<div class="flex flex-col gap-5 max-w-[500px]">
+  <header class="flex flex-col gap-2 md:flex-row md:justify-between">
+    <pa-heading>Корзина</pa-heading>
+  </header>
+  <div class="flex flex-col gap-5">
+    <pa-cart-product-cart></pa-cart-product-cart>
+    <pa-cart-product-cart></pa-cart-product-cart>
+  </div>
+  <div class="relative flex flex-col gap-2 md:justify-center ">
+    <input pa-inputText type="text" placeholder="Промокод" class="py-[12px] rounded-full w-full md:py-5" name="" id="">
+    <button pa-button class="md:absolute md:right-2">Применить</button>
+  </div>
+  <div>
+    <div class="flex justify-between py-3 font-normal border-b text-lg border-b-separator">
+      Итог
+      <span>
+        640 <span class="text-muted font-light text-base">₽ </span>
+      </span>
+    </div>
+    <div class="flex justify-between py-3 font-normal border-b text-lg border-b-separator">
+      Доставка
+      <span>
+        169 <span class="text-muted font-light text-base">₽ </span>
+      </span>
+    </div>
+    <div class="flex justify-between py-3 font-normal  text-lg border-b-separator">
+      <div>
+        Итог
+        <span class="text-sm font-light text-gray-400">(2)</span>
+
+      </div>
+      <span>
+        640 <span class="text-muted font-light text-base">₽ </span>
+      </span>
+    </div>
+  </div>
+  <button pa-button pa-size="lg" class="md:self-center md:min-w-[230px] text-sm md:text-md">Оформить</button>
+</div>

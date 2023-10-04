@@ -1,5 +1,8 @@
 .link {
-  @apply text-[#9ea1b1] text-lg flex gap-2 items-center hover:text-primary;
+  @apply text-[#9ea1b1] text-lg flex gap-2 font-light items-center hover:text-primary;
+  &__icon {
+    @apply text-2xl;
+  }
   &_active {
     @apply text-primary;
   }
