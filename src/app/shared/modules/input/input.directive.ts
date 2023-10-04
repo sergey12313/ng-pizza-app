@@ -1,9 +1,9 @@
 import {Directive} from '@angular/core';
 
 @Directive({
-  selector: '[pa-InputText]',
+  selector: '[pa-inputText]',
   host: {
-    class: '',
+    class: 'pa-input',
     // '[class.p-filled]': 'filled',
   },
 })

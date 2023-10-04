@@ -6,6 +6,8 @@ import {MainPageComponent} from './components/main-page/main-page.component';
 import {ShopLayoutComponent} from './components/shop-layout/shop-layout.component';
 import {RouterModule} from '@angular/router';
 import {InputModule} from '../shared/modules/input/input.module';
+import {ButtonModule} from '../shared/modules/button/button.module';
+import {HeadingModule} from '../shared/modules/heading/heading.module';
 
 const routes = [
   {
@@ -26,6 +28,12 @@ const routes = [
     MainPageComponent,
     ShopLayoutComponent,
   ],
-  imports: [CommonModule, InputModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    InputModule,
+    ButtonModule,
+    HeadingModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class ShopModule {}
