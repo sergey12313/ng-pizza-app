@@ -1,5 +1,5 @@
 .pa-input {
-  @apply border rounded-xl shadow-sm bg-white font-normal py-5 px-6 outline-none;
+  @apply border rounded-xl shadow-inputShadow bg-white font-normal py-5 px-6 outline-none;
   &:focus {
     @apply outline-primary -outline-offset-1;
   }
@@ -8,7 +8,7 @@
   }
 }
 .pa-button {
-  @apply text-white border bg-primary rounded-full cursor-pointer shadow-md
+  @apply text-white border bg-primary rounded-full cursor-pointer shadow-buttonShadow
       transition-colors outline-none focus-visible:outline-blue-400 focus-visible:-outline-offset-1;
   &:hover {
     @apply bg-primaryHover;

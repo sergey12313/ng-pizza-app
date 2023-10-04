@@ -1,0 +1,9 @@
+.link {
+  @apply text-[#9ea1b1] text-lg flex gap-2 items-center hover:text-primary;
+  &_active {
+    @apply text-primary;
+  }
+  span {
+    @apply hidden md:block;
+  }
+}

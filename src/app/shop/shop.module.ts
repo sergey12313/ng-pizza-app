@@ -8,6 +8,9 @@ import {RouterModule} from '@angular/router';
 import {InputModule} from '../shared/modules/input/input.module';
 import {ButtonModule} from '../shared/modules/button/button.module';
 import {HeadingModule} from '../shared/modules/heading/heading.module';
+import {SidebarComponent} from './components/sidebar/sidebar.component';
+import {AvatarComponent} from './components/avatar/avatar.component';
+import {ProductCartComponent} from './components/product-card/product-cart.component';
 
 const routes = [
   {
@@ -26,7 +29,10 @@ const routes = [
     SuccessPageComponent,
     CartPageComponent,
     MainPageComponent,
+    ProductCartComponent,
     ShopLayoutComponent,
+    SidebarComponent,
+    AvatarComponent,
   ],
   imports: [
     CommonModule,

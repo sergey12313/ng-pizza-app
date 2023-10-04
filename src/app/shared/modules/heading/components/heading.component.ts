@@ -6,6 +6,5 @@ import {Component, ContentChild, Input} from '@angular/core';
   styleUrls: ['./heading.component.scss'],
 })
 export class HeadingComponent {
-  @Input() level: number = 1;
-  @ContentChild('child') child: ChildComponent;
+  @Input() level: number = 2;
 }

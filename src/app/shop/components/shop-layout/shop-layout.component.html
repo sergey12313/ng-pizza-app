@@ -1,8 +1,12 @@
 <div class="h-screen max-h-screen">
-  <div class="fixed border-r border-r-separator top-0 left-0 bottom-0 w-[var(--sidebar-width-sm)] md:w-[var(--sidebar-width-md)]">
-    s
+  <div
+    class="fixed border-r border-r-separator top-0 left-0 bottom-0 w-[var(--sidebar-width-sm)] md:w-[var(--sidebar-width-md)]"
+  >
+    <pa-sidebar></pa-sidebar>
   </div>
-  <main class="flex flex-col  ml-[var(--sidebar-width-sm)] md:ml-[var(--sidebar-width-md)]"  >
+  <main
+    class="flex flex-col ml-[var(--sidebar-width-sm)] md:ml-[var(--sidebar-width-md)] py-5 px-2.5 md:px-14 md:py-8"
+  >
     <router-outlet></router-outlet>
   </main>
 </div>
