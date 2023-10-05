@@ -2,7 +2,11 @@
   <header class="flex flex-col gap-2 md:flex-row md:justify-between">
     <pa-heading>Меню</pa-heading>
     <div class="relative flex items-center">
-      <ng-icon name="jamSearch" size="20" class="absolute block  left-3 text-gray-300"></ng-icon>
+      <ng-icon
+        name="jamSearch"
+        size="20"
+        class="absolute block left-3 text-gray-300"
+      ></ng-icon>
 
       <input
         pa-inputText
@@ -12,10 +16,14 @@
       />
     </div>
   </header>
+  <div *ngIf="isLoading$ | async">Загрузка</div>
+  <div *ngIf="isError$ | async">Ошибка Загрузки</div>
   <div
     class="grid auto-rows-min gap-5 grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3"
   >
-    <pa-product-cart></pa-product-cart>
-    <pa-product-cart></pa-product-cart>
+    <pa-product-cart
+      *ngFor="let product of data$ | async"
+      [product]="product"
+    ></pa-product-cart>
   </div>
 </div>

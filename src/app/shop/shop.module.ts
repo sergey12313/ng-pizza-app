@@ -13,6 +13,8 @@ import {AvatarComponent} from './components/avatar/avatar.component';
 import {ProductCartComponent} from './components/product-card/product-cart.component';
 import {CartProductCartComponent} from './components/cart-product-cart/cart-product-cart.component';
 import {NgIconsModule} from '@ng-icons/core';
+import {EffectsModule} from '@ngrx/effects';
+import {StoreModule} from '@ngrx/store';
 import {
   jamPlus,
   jamMinus,
@@ -23,8 +25,14 @@ import {
   jamArrowLeft,
   jamPower,
   jamSearch,
+  jamUserCircle,
+  jamUserPlus,
 } from '@ng-icons/jam-icons';
 import {ProductPageComponent} from './components/product-page/product-page.component';
+import {ProductsService} from './services/products.service';
+import * as getProductsEffect from './store/products/effects/get-products.effect';
+import {productsReducer} from './store/products/products.reducer';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes = [
   {
@@ -56,6 +64,7 @@ const routes = [
     InputModule,
     ButtonModule,
     HeadingModule,
+    HttpClientModule,
     RouterModule.forChild(routes),
     NgIconsModule.withIcons({
       jamPlus,
@@ -67,7 +76,13 @@ const routes = [
       jamArrowLeft,
       jamPower,
       jamSearch,
+      jamUserCircle,
+      jamUserPlus,
     }),
+    EffectsModule.forFeature({...getProductsEffect}),
+    StoreModule.forFeature('products', productsReducer),
+    // StoreModule.forFeature('product', productsReducer),
   ],
+  providers: [ProductsService],
 })
 export class ShopModule {}

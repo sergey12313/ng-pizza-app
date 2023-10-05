@@ -1,11 +1,15 @@
 <a
   class="rounded-3xl shadow-cardShadow block"
-  [routerLink]="['/', 'product', '123']"
+  [routerLink]="['/', 'product', productProp.id]"
 >
   <div class="max-w-full overflow-hidden rounded-3xl h-[30vh] relative">
-    <img class="h-[30vh] w-full object-cover" src="assets/1.png" alt="" />
+    <img
+      class="h-[30vh] w-full object-cover"
+      [src]="productProp.image"
+      [alt]="productProp.name"
+    />
     <div class="absolute left-5 top-5 bg-white px-3.5 py-1 rounded-full">
-      300<span class="text-primary"> ₽</span>
+      {{ productProp.price }}<span class="text-primary"> ₽</span>
     </div>
     <button
       pa-button
@@ -19,10 +23,10 @@
     <div
       class="absolute bg-white flex gap-0.5 rounded-full py-1 px-2 shadow-sm -top-3.5 left-5 items-center"
     >
-      4.5
+      {{ productProp.rating }}
       <ng-icon name="jamStarF" class="text-orange-400"></ng-icon>
     </div>
-    <h2 class="text-lg font-semibold">Аццки острая</h2>
-    <p class="text-sm text-muted">Острый соус, грибы, помидоры, оливки</p>
+    <h2 class="text-lg font-semibold">{{ productProp.name }}</h2>
+    <p class="text-sm text-muted">{{ productProp.ingredients.join(', ') }}</p>
   </div>
 </a>

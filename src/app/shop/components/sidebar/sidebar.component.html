@@ -11,11 +11,28 @@
       [routerLinkActiveOptions]="{exact: true}"
       class="link"
     >
-    <ng-icon name="jamDocument"  class="link__icon"></ng-icon>
+      <ng-icon name="jamDocument" class="link__icon"></ng-icon>
       <span>Меню</span>
     </a>
     <a [routerLink]="['cart']" class="link" routerLinkActive="link_active">
-      <ng-icon name="jamShoppingCart" class="link__icon"></ng-icon><span>Корзина</span>
+      <ng-icon name="jamShoppingCart" class="link__icon"></ng-icon
+      ><span>Корзина</span>
+    </a>
+    <a
+      [routerLink]="['auth', 'login']"
+      class="link"
+      routerLinkActive="link_active"
+    >
+      <ng-icon name="jamUserCircle" class="link__icon"></ng-icon
+      ><span>Логин</span>
+    </a>
+    <a
+      [routerLink]="['auth', 'register']"
+      class="link"
+      routerLinkActive="link_active"
+    >
+      <ng-icon name="jamUserPlus" class="link__icon"></ng-icon
+      ><span>Регистрация</span>
     </a>
   </nav>
   <button
@@ -23,7 +40,7 @@
     pa-size="sm"
     class="flex mt-auto items-center gap-2 p-1.5 md:!pl-2 md:!pr-3 md:!py-2"
   >
-  <ng-icon name="jamPower" size="30px"></ng-icon>
+    <ng-icon name="jamPower" size="30px"></ng-icon>
     <span class="hidden md:block">Выйти</span>
   </button>
 </div>
