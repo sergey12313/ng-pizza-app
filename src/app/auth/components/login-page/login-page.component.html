@@ -1,1 +1,20 @@
-<p>login-page works!</p>
+<form class="flex flex-col max-w-[320px] gap-2 flex-1">
+  <header class="mb-3">
+    <pa-heading>Вход</pa-heading>
+  </header>
+  <fieldset class="flex flex-col gap-1">
+    <label class="text-gray-200" for="email">Ваш email</label>
+    <input pa-inputText id="email" type="text" />
+  </fieldset>
+  <fieldset class="flex flex-col gap-1 mt-5">
+    <label class="text-gray-200" for="password">Пароль</label>
+    <input pa-inputText id="password" type="password" />
+  </fieldset>
+  <button pa-button type="submit" pa-size="lg" class="mt-10 self-center w-4/5">
+    Вход
+  </button>
+  <div class="flex flex-col items-center mt-3">
+    <p>Нет аккаунта?</p>
+    <a class="text-primary" routerLink="/register">Регистрация</a>
+  </div>
+</form>

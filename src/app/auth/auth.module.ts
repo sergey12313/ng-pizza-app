@@ -4,6 +4,9 @@ import {LoginPageComponent} from './components/login-page/login-page.component';
 import {RegisterPageComponent} from './components/register-page/register-page.component';
 import {AuthLayoutComponent} from './components/auth-layout/auth-layout.component';
 import {RouterModule, Routes} from '@angular/router';
+import {HeadingModule} from '../shared/modules/heading/heading.module';
+import {InputModule} from '../shared/modules/input/input.module';
+import {ButtonModule} from '../shared/modules/button/button.module';
 
 const routes: Routes = [
   {
@@ -22,6 +25,12 @@ const routes: Routes = [
     RegisterPageComponent,
     AuthLayoutComponent,
   ],
-  imports: [CommonModule, RouterModule.forChild(routes)],
+  imports: [
+    CommonModule,
+    HeadingModule,
+    InputModule,
+    ButtonModule,
+    RouterModule.forChild(routes),
+  ],
 })
 export class AuthModule {}

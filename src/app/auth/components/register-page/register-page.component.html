@@ -1,1 +1,29 @@
-<p>register-page works!</p>
+<form class="flex flex-col max-w-[320px] gap-1 md:gap-2 flex-1">
+  <header class="mb-3">
+    <pa-heading>Регистрация</pa-heading>
+  </header>
+  <fieldset class="flex flex-col gap-1">
+    <label class="text-gray-200" for="email">Ваш email</label>
+    <input pa-inputText id="email" type="text" placeholder="Email" />
+  </fieldset>
+  <fieldset class="flex flex-col gap-1 mt-3 md:mt-5">
+    <label class="text-gray-200" for="password">Пароль</label>
+    <input pa-inputText id="password" type="password" placeholder="Пароль" />
+  </fieldset>
+  <fieldset class="flex flex-col gap-1 mt-3 md:mt-5">
+    <label class="text-gray-200" for="name">Ваше имя</label>
+    <input pa-inputText id="name" type="text" placeholder="Имя" />
+  </fieldset>
+  <button
+    pa-button
+    type="submit"
+    pa-size="lg"
+    class="px-6 min-[320px]:mt-10 mt-5 md:mt-10 self-center"
+  >
+    Зарегистрироваться
+  </button>
+  <div class="flex flex-col items-center mt-3">
+    <p>Есть акканут?</p>
+    <a class="text-primary" [routerLink]="['/', 'login']">Войти</a>
+  </div>
+</form>

@@ -8,4 +8,10 @@
     --sidebar-width-sm: 64px;
     --sidebar-width-md: 240px;
   }
+  * {
+  -webkit-tap-highlight-color: transparent;
+}
+  a {
+    @apply focus-visible:outline-primary
+  }
 }

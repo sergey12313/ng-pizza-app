@@ -8,3 +8,14 @@ const routes: Routes = [];
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
+
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: AuthLayoutComponent,
+//     children: [
+//       {path: 'login', component: LoginPageComponent},
+//       {path: 'register', component: RegisterPageComponent},
+//     ],
+//   },
+// ];
