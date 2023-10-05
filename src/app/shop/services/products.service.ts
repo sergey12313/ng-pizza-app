@@ -10,10 +10,12 @@ import {ProductResponseType} from '../types/productResponse.type';
 @Injectable()
 export class ProductsService {
   constructor(private http: HttpClient) {}
-  getProducts(): Observable<ProductsType> {
+  getProducts(searchTerm?: string): Observable<ProductsType> {
     return this.http.get<ProductsResponseType>(environment.apiUrl + 'products');
   }
-  getProductById(id: number): Observable<ProductInterface> {
-    return this.http.get<ProductResponseType>(environment.apiUrl + 'products');
+  getProductById(id: string): Observable<ProductInterface> {
+    return this.http.get<ProductResponseType>(
+      environment.apiUrl + 'products/' + id
+    );
   }
 }

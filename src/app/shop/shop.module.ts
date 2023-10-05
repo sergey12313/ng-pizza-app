@@ -31,8 +31,11 @@ import {
 import {ProductPageComponent} from './components/product-page/product-page.component';
 import {ProductsService} from './services/products.service';
 import * as getProductsEffect from './store/products/effects/get-products.effect';
+import * as getProductEffect from './store/product/effects/get-product.effect';
 import {productsReducer} from './store/products/products.reducer';
 import {HttpClientModule} from '@angular/common/http';
+import {productReducer} from './store/product/product.reducer';
+import {cartReducer} from './store/cart/cart.reducer';
 
 const routes = [
   {
@@ -79,9 +82,10 @@ const routes = [
       jamUserCircle,
       jamUserPlus,
     }),
-    EffectsModule.forFeature({...getProductsEffect}),
+    EffectsModule.forFeature({...getProductsEffect}, {...getProductEffect}),
     StoreModule.forFeature('products', productsReducer),
-    // StoreModule.forFeature('product', productsReducer),
+    StoreModule.forFeature('product', productReducer),
+    StoreModule.forFeature('cart', cartReducer),
   ],
   providers: [ProductsService],
 })

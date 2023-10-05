@@ -12,6 +12,7 @@
       {{ productProp.price }}<span class="text-primary"> ₽</span>
     </div>
     <button
+      (click)="onCardAdd($event)"
       pa-button
       pa-size="sm"
       class="absolute right-5 top-5 w-9 h-9 flex justify-center items-center border-none"

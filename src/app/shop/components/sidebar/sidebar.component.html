@@ -12,11 +12,18 @@
       class="link"
     >
       <ng-icon name="jamDocument" class="link__icon"></ng-icon>
-      <span>Меню</span>
+      <span class="link__title">Меню</span>
     </a>
-    <a [routerLink]="['cart']" class="link" routerLinkActive="link_active">
+    <a
+      [routerLink]="['cart']"
+      class="link relative"
+      routerLinkActive="link_active"
+    >
       <ng-icon name="jamShoppingCart" class="link__icon"></ng-icon
-      ><span>Корзина</span>
+      ><span class="link__title">Корзина</span>
+      <span class="link__cart-count" *ngIf="count$ | async">{{
+        count$ | async
+      }}</span>
     </a>
     <a
       [routerLink]="['auth', 'login']"
@@ -24,7 +31,7 @@
       routerLinkActive="link_active"
     >
       <ng-icon name="jamUserCircle" class="link__icon"></ng-icon
-      ><span>Логин</span>
+      ><span class="link__title">Логин</span>
     </a>
     <a
       [routerLink]="['auth', 'register']"
@@ -32,7 +39,7 @@
       routerLinkActive="link_active"
     >
       <ng-icon name="jamUserPlus" class="link__icon"></ng-icon
-      ><span>Регистрация</span>
+      ><span class="link__title">Регистрация</span>
     </a>
   </nav>
   <button
