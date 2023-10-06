@@ -6,6 +6,7 @@ import {
   getCartProductsAction,
   getCartProductsFailureAction,
   getCartProductsSuccessAction,
+  hydrateCartItemsActionSuccessAction,
 } from './actions/cart.action';
 
 const initialState: CartStateInterface = {
@@ -19,6 +20,10 @@ const initialState: CartStateInterface = {
 
 export const cartReducer = createReducer(
   initialState,
+  on(hydrateCartItemsActionSuccessAction, (state, {items}) => ({
+    ...state,
+    cartItems: items,
+  })),
   on(addCartAction, (state, {id}) => {
     const existed = state.cartItems.find((item) => item.id === id);
     if (!existed) {

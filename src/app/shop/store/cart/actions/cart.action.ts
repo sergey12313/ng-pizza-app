@@ -12,9 +12,15 @@ export const getCartProductsAction = createAction(
   CartActionTypes.GET_CART_PRODUCTS
 );
 
-export const getCartItemsAction = createAction(
-  CartActionTypes.GET_CART_ITEMS,
-  props<{products: Array<CartItemInterface>}>()
+export const hydrateCartItemsAction = createAction(
+  CartActionTypes.HYDRATE_CART_ITEMS
+);
+export const hydrateCartItemsActionSuccessAction = createAction(
+  CartActionTypes.HYDRATE_CART_ITEMS_SUCCESS,
+  props<{items: Array<CartItemInterface>}>()
+);
+export const hydrateCartItemsActionFailureAction = createAction(
+  CartActionTypes.HYDRATE_CART_ITEMS_FAILURE
 );
 
 export const getCartProductsSuccessAction = createAction(
