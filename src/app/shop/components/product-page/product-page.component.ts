@@ -43,14 +43,13 @@ export class ProductPageComponent implements OnInit, OnDestroy {
   }
   initializeValues() {
     this.id = this.route.snapshot.paramMap.get('id') as string;
+    this.isLoading$ = this.store.pipe(select(productIsLoadingSelector));
+    this.isError$ = this.store.pipe(select(productErrorSelector));
   }
   fetchData() {
     this.store.dispatch(getProductAction({id: this.id}));
   }
-  initializeValue() {
-    this.isLoading$ = this.store.pipe(select(productIsLoadingSelector));
-    this.isError$ = this.store.pipe(select(productErrorSelector));
-  }
+
   initializeListeners() {
     this.dataSubscription = this.store
       .pipe(select(productDataSelector))

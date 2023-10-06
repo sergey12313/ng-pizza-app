@@ -1,15 +1,19 @@
-<a [routerLink]="['/', 'product', '123']" class="flex gap-2 md:gap-5">
+<a [routerLink]="['/', 'product', productProp.id]" class="flex gap-2 md:gap-5">
   <div
     class="w-14 h-14 min-[320px]:w-20 min-[320px]:h-20 overflow-hidden rounded-xl shrink-0"
   >
-    <img src="assets/1.png" alt="product" class="w-full h-full object-cover" />
+    <img
+      [src]="productProp.image"
+      [alt]="productProp.name"
+      class="w-full h-full object-cover"
+    />
   </div>
   <div
     class="flex flex-col gap-1 min-[320px]:gap-2.5 text-xs min-[320px]text-sm md:text-lg"
   >
-    <h3 class="font-semibold">Аццки острая</h3>
+    <h3 class="font-semibold">{{ productProp.name }}</h3>
     <div class="text-primary">
-      300
+      {{ productProp.price }}
       <span>₽</span>
     </div>
   </div>

@@ -7,3 +7,20 @@ export const cartFeatureSelector =
 export const cartCountSelector = createSelector(cartFeatureSelector, (state) =>
   state.cartItems.reduce((acc, item) => acc + item.count, 0)
 );
+
+export const cartItemsSelector = createSelector(
+  cartFeatureSelector,
+  (state) => state.cartItems
+);
+export const cartProductsSelector = createSelector(
+  cartFeatureSelector,
+  (state) => state.cartProductItems.data
+);
+export const cartProductsIsLoadingSelector = createSelector(
+  cartFeatureSelector,
+  (state) => state.cartProductItems.isLoading
+);
+export const cartProductsIsErrorSelector = createSelector(
+  cartFeatureSelector,
+  (state) => state.cartProductItems.error
+);

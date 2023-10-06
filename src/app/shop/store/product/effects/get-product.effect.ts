@@ -1,6 +1,6 @@
 import {inject} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
-
+import {Store} from '@ngrx/store';
 import {map, exhaustMap, catchError} from 'rxjs/operators';
 
 import {of} from 'rxjs';

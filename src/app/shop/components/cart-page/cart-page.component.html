@@ -3,8 +3,13 @@
     <pa-heading>Корзина</pa-heading>
   </header>
   <div class="flex flex-col gap-5">
-    <pa-cart-product-cart></pa-cart-product-cart>
-    <pa-cart-product-cart></pa-cart-product-cart>
+    <div *ngIf="isLoading$ | async">Загрузка</div>
+    <div *ngIf="isError$ | async">Ошибка загрузки</div>
+    <div *ngIf="(data$ | async)?.length === 0">Нет товаров</div>
+    <pa-cart-product-cart
+      *ngFor="let product of data$ | async"
+      [product]="product"
+    ></pa-cart-product-cart>
   </div>
   <div class="relative flex flex-col gap-2 md:justify-center">
     <input

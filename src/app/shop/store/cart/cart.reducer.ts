@@ -1,10 +1,20 @@
 import {createReducer, on} from '@ngrx/store';
 
 import {CartStateInterface} from './cart-state.interface';
-import {addCartAction} from './actions/cart.action';
+import {
+  addCartAction,
+  getCartProductsAction,
+  getCartProductsFailureAction,
+  getCartProductsSuccessAction,
+} from './actions/cart.action';
 
 const initialState: CartStateInterface = {
   cartItems: [],
+  cartProductItems: {
+    isLoading: false,
+    error: false,
+    data: [],
+  },
 };
 
 export const cartReducer = createReducer(
@@ -19,7 +29,7 @@ export const cartReducer = createReducer(
     }
 
     return {
-      ...initialState,
+      ...state,
       cartItems: state.cartItems.map((item) => {
         if (item.id === id) {
           return {
@@ -30,5 +40,29 @@ export const cartReducer = createReducer(
         return item;
       }),
     };
-  })
+  }),
+  on(getCartProductsAction, (state) => ({
+    ...state,
+    cartProductItems: {
+      isLoading: true,
+      error: false,
+      data: [],
+    },
+  })),
+  on(getCartProductsSuccessAction, (state, {products}) => ({
+    ...state,
+    cartProductItems: {
+      isLoading: false,
+      error: false,
+      data: products,
+    },
+  })),
+  on(getCartProductsFailureAction, (state) => ({
+    ...state,
+    cartProductItems: {
+      isLoading: false,
+      error: true,
+      data: [],
+    },
+  }))
 );
