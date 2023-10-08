@@ -12,6 +12,7 @@ module.exports = {
       },
       colors: {
         primary: '#fe724c',
+        primaryDisabled: '#fd744e9e',
         primaryHover: '#f96941',
         muted: '#5b5b5e',
         separator: "#d4d6e0"

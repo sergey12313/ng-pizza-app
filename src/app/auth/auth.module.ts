@@ -7,6 +7,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeadingModule} from '../shared/modules/heading/heading.module';
 import {InputModule} from '../shared/modules/input/input.module';
 import {ButtonModule} from '../shared/modules/button/button.module';
+import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 const routes: Routes = [
   {
@@ -32,6 +34,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     HeadingModule,
     InputModule,
     ButtonModule,

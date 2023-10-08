@@ -1,22 +1,62 @@
-<form class="flex flex-col max-w-[320px] gap-1 md:gap-2 flex-1">
+<form
+  [formGroup]="form"
+  (ngSubmit)="onSubmit()"
+  class="flex flex-col max-w-[320px] gap-1 md:gap-2 flex-1"
+>
   <header class="mb-3">
     <pa-heading>Регистрация</pa-heading>
   </header>
+  <div *ngIf="isErrorFound$ | async" class="flex flex-col gap-1">
+    <p class="text-red-500" *ngFor="let error of validationErrors$ | async">
+      {{ error }}
+    </p>
+  </div>
   <fieldset class="flex flex-col gap-1">
     <label class="text-gray-200" for="email">Ваш email</label>
-    <input pa-inputText id="email" type="text" placeholder="Email" />
+    <input
+      pa-inputText
+      id="email"
+      [class]="{
+        'border-red-500':
+          form.get('email')!.touched && form.get('email')!.invalid
+      }"
+      type="text"
+      formControlName="email"
+      placeholder="Email"
+    />
   </fieldset>
   <fieldset class="flex flex-col gap-1 mt-3 md:mt-5">
+    <span>{{ form.get('password')?.errors | json }}</span>
     <label class="text-gray-200" for="password">Пароль</label>
-    <input pa-inputText id="password" type="password" placeholder="Пароль" />
+    <input
+      pa-inputText
+      id="password"
+      [class]="{
+        'border-red-500':
+          form.get('password')!.touched && form.get('password')!.invalid
+      }"
+      formControlName="password"
+      type="password"
+      placeholder="Пароль"
+    />
   </fieldset>
   <fieldset class="flex flex-col gap-1 mt-3 md:mt-5">
     <label class="text-gray-200" for="name">Ваше имя</label>
-    <input pa-inputText id="name" type="text" placeholder="Имя" />
+    <input
+      pa-inputText
+      id="name"
+      [class]="{
+        'border-red-500': form.get('name')!.touched && form.get('name')!.invalid
+      }"
+      formControlName="name"
+      type="text"
+      placeholder="Имя"
+    />
   </fieldset>
   <button
     pa-button
     type="submit"
+    [disabled]="isSubmitting$ | async"
     pa-size="lg"
     class="px-6 min-[320px]:mt-10 mt-5 md:mt-10 self-center"
   >
@@ -24,6 +64,6 @@
   </button>
   <div class="flex flex-col items-center mt-3">
     <p>Есть акканут?</p>
-    <a class="text-primary" [routerLink]="['/', 'login']">Войти</a>
+    <a class="text-primary" [routerLink]="['/', 'auth', 'login']">Войти</a>
   </div>
 </form>

@@ -5,6 +5,8 @@ import {ProductInterface} from 'src/app/shared/types/product.interface';
 import {Nullable} from 'src/app/shared/types/utils';
 import {getProductAction} from '../../store/product/actions/get-product.action';
 import {Store, select} from '@ngrx/store';
+import {Location} from '@angular/common';
+
 import {
   productErrorSelector,
   productIsLoadingSelector,
@@ -26,7 +28,8 @@ export class ProductPageComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     readonly store: Store,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) {}
   ngOnDestroy(): void {
     if (this.dataSubscription) {
@@ -39,7 +42,7 @@ export class ProductPageComponent implements OnInit, OnDestroy {
     this.initializeListeners();
   }
   goBack() {
-    this.router.navigate(['..']);
+    this.location.back();
   }
   initializeValues() {
     this.id = this.route.snapshot.paramMap.get('id') as string;

@@ -3,10 +3,13 @@ import {createReducer, on} from '@ngrx/store';
 import {CartStateInterface} from './cart-state.interface';
 import {
   addCartAction,
+  decrementCartAction,
   getCartProductsAction,
   getCartProductsFailureAction,
   getCartProductsSuccessAction,
   hydrateCartItemsActionSuccessAction,
+  incrementCartAction,
+  removeCartAction,
 } from './actions/cart.action';
 
 const initialState: CartStateInterface = {
@@ -69,5 +72,68 @@ export const cartReducer = createReducer(
       error: true,
       data: [],
     },
+  })),
+  on(incrementCartAction, (state, {id}) => {
+    return {
+      cartProductItems: {
+        ...state.cartProductItems,
+        data: state.cartProductItems.data.map((item) => {
+          if (String(item.id) === id) {
+            return {
+              ...item,
+              count: item.count + 1,
+            };
+          }
+          return item;
+        }),
+      },
+      cartItems: state.cartItems.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            count: item.count + 1,
+          };
+        }
+        return item;
+      }),
+    };
+  }),
+  on(decrementCartAction, (state, {id}) => {
+    return {
+      cartProductItems: {
+        ...state.cartProductItems,
+        data: state.cartProductItems.data
+          .map((item) => {
+            if (String(item.id) === id) {
+              return {
+                ...item,
+                count: item.count - 1,
+              };
+            }
+            return item;
+          })
+          .filter((item) => item.count > 0),
+      },
+      cartItems: state.cartItems
+        .map((item) => {
+          if (item.id === id) {
+            return {
+              ...item,
+              count: item.count - 1,
+            };
+          }
+          return item;
+        })
+        .filter((item) => item.count > 0),
+    };
+  }),
+  on(removeCartAction, (state, {id}) => ({
+    cartProductItems: {
+      ...state.cartProductItems,
+      data: state.cartProductItems.data.filter(
+        (item) => String(item.id) !== id
+      ),
+    },
+    cartItems: state.cartItems.filter((item) => item.id !== id),
   }))
 );
