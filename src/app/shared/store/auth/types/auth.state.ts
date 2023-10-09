@@ -7,6 +7,6 @@ export interface AuthStateInterface {
   isSubmitting: boolean;
   token: Nullable<string>;
   currentUser: Nullable<UserResponseInterface>;
-  isLoggedIn: Nullable<boolean>;
+  isLoggedIn: boolean;
   validationErrors: Nullable<Array<string>>;
 }

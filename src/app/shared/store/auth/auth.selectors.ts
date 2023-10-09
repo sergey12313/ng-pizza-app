@@ -31,3 +31,7 @@ export const userSelector = createSelector(
   authFeatureSelector,
   (state) => state.currentUser
 );
+export const isLoggedInSelector = createSelector(
+  authFeatureSelector,
+  (state) => state.isLoggedIn
+);

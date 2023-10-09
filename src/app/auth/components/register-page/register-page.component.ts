@@ -40,13 +40,13 @@ export class RegisterPageComponent implements OnInit {
   }
   initializeForm(): void {
     this.form = this.formBuilder.nonNullable.group({
-      email: ['sdf@ya.ru', [[Validators.email]]],
+      email: ['sdf@ya.ru', [Validators.required, Validators.email]],
       password: ['12345678', Validators.required],
-      name: ['sergey razuvaev', Validators.required],
+      name: ['sergey razuvaev', [Validators.required, Validators.minLength(3)]],
     });
   }
   onSubmit(): void {
-    console.log(this.form.value);
+    this.form.markAllAsTouched();
     if (this.form.valid) {
       const request = this.form.value as RegisterRequestInterface;
       this.store.dispatch(registerAction({request}));

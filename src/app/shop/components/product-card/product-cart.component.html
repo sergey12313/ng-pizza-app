@@ -28,6 +28,8 @@
       <ng-icon name="jamStarF" class="text-orange-400"></ng-icon>
     </div>
     <h2 class="text-lg font-semibold">{{ productProp.name }}</h2>
-    <p class="text-sm text-muted">{{ productProp.ingredients.join(', ') }}</p>
+    <p class="text-sm text-muted line-clamp-2 min-h-[42px]">
+      {{ productProp.ingredients.join(', ') }}
+    </p>
   </div>
 </a>

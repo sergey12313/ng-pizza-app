@@ -21,6 +21,7 @@
     "@ng-icons/core": "^25.3.1",
     "@ng-icons/jam-icons": "^25.3.1",
     "@ngrx/effects": "^16.3.0",
+    "@ngrx/router-store": "latest",
     "@ngrx/store": "^16.3.0",
     "@ngrx/store-devtools": "^16.3.0",
     "rxjs": "~7.8.0",

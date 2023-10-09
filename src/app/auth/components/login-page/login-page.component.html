@@ -6,9 +6,23 @@
   <header class="mb-3">
     <pa-heading>Вход</pa-heading>
   </header>
+  <div *ngIf="isErrorFound$ | async" class="flex flex-col gap-1">
+    <p class="text-red-500" *ngFor="let error of validationErrors$ | async">
+      {{ error }}
+    </p>
+  </div>
   <fieldset class="flex flex-col gap-1">
     <label class="text-gray-200" for="email">Ваш email</label>
-    <input pa-inputText id="email" type="text" formControlName="email" />
+    <input
+      pa-inputText
+      id="email"
+      [class]="{
+        'border-red-500':
+          form.get('email')!.touched && form.get('email')!.invalid
+      }"
+      type="text"
+      formControlName="email"
+    />
   </fieldset>
   <fieldset class="flex flex-col gap-1 mt-5">
     <label class="text-gray-200" for="password">Пароль</label>
@@ -16,6 +30,10 @@
       pa-inputText
       id="password"
       type="password"
+      [class]="{
+        'border-red-500':
+          form.get('email')!.touched && form.get('password')!.invalid
+      }"
       formControlName="password"
     />
   </fieldset>
