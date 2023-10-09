@@ -4,7 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && bun scripts/patch-build.ts",
+    "build": "ng build",
+    "cp-for-gh": "bun scripts/patch-build.ts",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

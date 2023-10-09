@@ -17,6 +17,8 @@ jobs:
         run: bun i
       - name: Build
         run: bun run build -- -c production --base-href "/ng-pizza-app/"
+      - name: cp index.html to 404.html
+        run: bun run cp-for-gh
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:
