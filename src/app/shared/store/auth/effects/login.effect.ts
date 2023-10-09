@@ -31,7 +31,6 @@ export const loginEffect = createEffect(
             return loginSuccessAction({token: access_token});
           }),
           catchError((errorsResponse: HttpErrorResponse) => {
-            console.log(errorsResponse);
             let error!: Array<string>;
             if (!errorsResponse?.error?.message) {
               ['Неизвестная ошибка'];

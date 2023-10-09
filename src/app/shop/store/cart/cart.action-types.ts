@@ -9,4 +9,6 @@ export const enum CartActionTypes {
   CART_INCREMENT = '[Cart] increment',
   CART_DECREMENT = '[Cart] decrement',
   CART_ITEM_REMOVE = '[Cart] item remove',
+  CART_CLEAR = '[Cart] clear',
+  CART_CHECKOUT = '[Cart] checkout',
 }

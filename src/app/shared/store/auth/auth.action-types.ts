@@ -11,4 +11,7 @@ export const enum AuthActionTypes {
   GET_CURRENT_USER_SUCCESS = '[Auth] get current user success',
   GET_CURRENT_USER_FAILURE = '[Auth] get current user failure',
   AUTH_CLEAR_VALIDATION_ERRORS = '[Auth] clear validation errors',
+
+  LOGOUT_START = '[Auth] logout start',
+  LOGOUT_COMPLETE = '[Auth] logout complete',
 }

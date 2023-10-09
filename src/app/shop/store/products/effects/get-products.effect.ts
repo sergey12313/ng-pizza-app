@@ -16,8 +16,8 @@ export const getProductsEffect = createEffect(
     return actions$.pipe(
       ofType(getProductsAction),
 
-      exhaustMap(() => {
-        return productsService.getProducts().pipe(
+      exhaustMap(({searchTerm}) => {
+        return productsService.getProducts(searchTerm).pipe(
           map((products) => getProductsSuccessAction({products})),
           catchError(() => {
             return of(getProductsFailureAction());

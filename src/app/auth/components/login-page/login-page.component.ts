@@ -38,7 +38,7 @@ export class LoginPageComponent implements OnInit {
   }
   initializeForm(): void {
     this.form = this.formBuilder.nonNullable.group({
-      email: ['sdf@ya.ru', [Validators.required, Validators.email]],
+      email: ['test@test.org', [Validators.required, Validators.email]],
       password: ['12345678', Validators.required],
     });
   }

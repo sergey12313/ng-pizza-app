@@ -10,6 +10,7 @@
 
       <input
         pa-inputText
+        #searchInput
         type="text"
         placeholder="Введите блюдо или состав"
         class="text-[10px] pt-4 pr-5 pb-3 pl-10 min-w-[200px] md:text-sm md:min-w-[280px] md:pt-4 md:pr-5 md:pb-4 md:pl-10"
@@ -18,12 +19,17 @@
   </header>
   <div *ngIf="isLoading$ | async">Загрузка</div>
   <div *ngIf="isError$ | async">Ошибка Загрузки</div>
-  <div
-    class="grid auto-rows-min gap-5 grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3"
-  >
-    <pa-product-cart
-      *ngFor="let product of data$ | async"
-      [product]="product"
-    ></pa-product-cart>
-  </div>
+  <ng-container *ngIf="data$ | async; let data">
+    <div
+      class="grid auto-rows-min gap-5 grid-cols-1 min-[900px]:grid-cols-2 min-[1300px]:grid-cols-3"
+    >
+      <pa-product-cart
+        *ngFor="let product of data"
+        [product]="product"
+      ></pa-product-cart>
+    </div>
+    <ng-container *ngIf="data.length === 0">
+      <div>Нет данных по данному запросу</div>
+    </ng-container>
+  </ng-container>
 </div>

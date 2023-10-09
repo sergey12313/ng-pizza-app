@@ -2,7 +2,10 @@ import {ProductsType} from 'src/app/shop/types/products.type';
 import {createAction, props} from '@ngrx/store';
 import {ProductsActionTypes} from '../products.action-types';
 
-export const getProductsAction = createAction(ProductsActionTypes.GET_PRODUCTS);
+export const getProductsAction = createAction(
+  ProductsActionTypes.GET_PRODUCTS,
+  props<{searchTerm: string}>()
+);
 
 export const getProductsSuccessAction = createAction(
   ProductsActionTypes.GET_PRODUCTS_SUCCESS,

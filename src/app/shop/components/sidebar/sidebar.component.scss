@@ -10,7 +10,7 @@
     @apply hidden md:block;
   }
   &__cart-count {
-    @apply absolute bg-primary rounded-full w-[18px] h-[18px] -right-2.5 -top-2 md:right-4 md:-top-0.5 text-white flex justify-center items-center;
+    @apply absolute bg-primary rounded-full w-[18px] h-[18px] -right-2.5 -top-2 md:-right-5 md:-top-0.5 text-white flex justify-center items-center;
     font-size: 10px;
     line-height: 10px;
   }

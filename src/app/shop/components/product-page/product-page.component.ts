@@ -12,6 +12,7 @@ import {
   productIsLoadingSelector,
   productDataSelector,
 } from '../../store/product/product.selectors';
+import {addCartAction} from '../../store/cart/actions/cart.action';
 
 @Component({
   selector: 'pa-product-page',
@@ -43,6 +44,9 @@ export class ProductPageComponent implements OnInit, OnDestroy {
   }
   goBack() {
     this.location.back();
+  }
+  addToCart() {
+    this.store.dispatch(addCartAction({id: this.id}));
   }
   initializeValues() {
     this.id = this.route.snapshot.paramMap.get('id') as string;

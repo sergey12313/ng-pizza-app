@@ -1,12 +1,19 @@
 <div class="flex h-full flex-col items-center py-5 gap-5 md:p-8 md:items-start">
-  <pa-avatar imgUrl="assets/user.png" name="sergey razuvaev"></pa-avatar>
+  <pa-avatar
+    imgUrl="assets/user.png"
+    [name]="(user && user.name) || 'Анонимный посетитель'"
+  ></pa-avatar>
   <div class="hidden md:block">
-    <h3 class="font-semibold text-xl">Сергей Разуваев</h3>
-    <p class="text-[#9ea1b1] text-sm">serg@ya.ru</p>
+    <h3 class="font-semibold text-xl">
+      {{ (user && user.name) || 'Анонимный посетитель' }}
+    </h3>
+    <p class="text-[#9ea1b1] text-sm" *ngIf="user">
+      {{ (user && user.email) || 'Анонимный посетитель' }}
+    </p>
   </div>
-  <nav class="flex gap-5 flex-col">
+  <nav class="flex gap-5 flex-col items-start">
     <a
-      [routerLink]="['']"
+      [routerLink]="['/', 'shop']"
       routerLinkActive="link_active"
       [routerLinkActiveOptions]="{exact: true}"
       class="link"
@@ -25,25 +32,29 @@
         count$ | async
       }}</span>
     </a>
-    <a
-      [routerLink]="['/', 'auth', 'login']"
-      class="link"
-      routerLinkActive="link_active"
-    >
-      <ng-icon name="jamUserCircle" class="link__icon"></ng-icon
-      ><span class="link__title">Логин</span>
-    </a>
-    <a
-      [routerLink]="['/', 'auth', 'register']"
-      class="link"
-      routerLinkActive="link_active"
-    >
-      <ng-icon name="jamUserPlus" class="link__icon"></ng-icon
-      ><span class="link__title">Регистрация</span>
-    </a>
+    <ng-container *ngIf="!(isLoggedIn$ | async)">
+      <a
+        [routerLink]="['/', 'auth', 'login']"
+        class="link"
+        routerLinkActive="link_active"
+      >
+        <ng-icon name="jamUserCircle" class="link__icon"></ng-icon
+        ><span class="link__title">Логин</span>
+      </a>
+      <a
+        [routerLink]="['/', 'auth', 'register']"
+        class="link"
+        routerLinkActive="link_active"
+      >
+        <ng-icon name="jamUserPlus" class="link__icon"></ng-icon
+        ><span class="link__title">Регистрация</span>
+      </a>
+    </ng-container>
   </nav>
   <button
+    *ngIf="isLoggedIn$ | async"
     pa-button
+    (click)="logout()"
     pa-size="sm"
     class="flex mt-auto items-center gap-2 p-1.5 md:!pl-2 md:!pr-3 md:!py-2"
   >

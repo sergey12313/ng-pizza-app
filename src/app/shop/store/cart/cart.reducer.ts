@@ -3,6 +3,7 @@ import {createReducer, on} from '@ngrx/store';
 import {CartStateInterface} from './cart-state.interface';
 import {
   addCartAction,
+  cartClearAction,
   decrementCartAction,
   getCartProductsAction,
   getCartProductsFailureAction,
@@ -23,6 +24,9 @@ const initialState: CartStateInterface = {
 
 export const cartReducer = createReducer(
   initialState,
+  on(cartClearAction, () => ({
+    ...initialState,
+  })),
   on(hydrateCartItemsActionSuccessAction, (state, {items}) => ({
     ...state,
     cartItems: items,

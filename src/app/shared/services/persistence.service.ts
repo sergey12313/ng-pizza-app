@@ -11,6 +11,13 @@ export class PersistenceService {
       console.error(e);
     }
   }
+  remove(key: string) {
+    try {
+      window.localStorage.removeItem(key);
+    } catch (e) {
+      console.error(e);
+    }
+  }
   get(key: string) {
     try {
       const localStorageResult = window.localStorage.getItem(key);

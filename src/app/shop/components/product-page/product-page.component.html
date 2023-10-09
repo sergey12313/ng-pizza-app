@@ -8,13 +8,14 @@
         pa-button
         pa-size="sm"
         pa-appearance="no-border"
-        class="flex justify-center items-center px-1"
+        class="flex justify-center items-center px-1 py-1"
       >
         <ng-icon name="jamArrowLeft"></ng-icon>
       </button>
       <pa-heading class="!text-base md:!text-3xl">{{ data.name }}</pa-heading>
       <button
         pa-button
+        (click)="addToCart()"
         pa-size="md"
         class="ml-auto flex justify-center items-center gap-2 w-10 h-10 p-0 md:w-auto md:h-auto md:px-3 md:py-2"
       >

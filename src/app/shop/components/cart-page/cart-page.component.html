@@ -27,29 +27,60 @@
       class="flex justify-between py-3 font-normal border-b text-lg border-b-separator"
     >
       Итог
-      <span> 640 <span class="text-muted font-light text-base">₽ </span> </span>
+      <span>
+        {{ sum$ | async }}
+        <span class="text-muted font-light text-base">₽ </span>
+      </span>
     </div>
     <div
       class="flex justify-between py-3 font-normal border-b text-lg border-b-separator"
     >
       Доставка
-      <span> 169 <span class="text-muted font-light text-base">₽ </span> </span>
+      <span>
+        {{ deliveryPrice }}
+        <span class="text-muted font-light text-base">₽ </span>
+      </span>
     </div>
     <div
       class="flex justify-between py-3 font-normal text-lg border-b-separator"
     >
       <div>
         Итог
-        <span class="text-sm font-light text-gray-400">(2)</span>
+        <span class="text-sm font-light text-gray-400"
+          >({{ count$ | async }})</span
+        >
       </div>
-      <span> 640 <span class="text-muted font-light text-base">₽ </span> </span>
+      <span>
+        {{ totalPrice$ | async }}
+        <span class="text-muted font-light text-base">₽ </span>
+      </span>
     </div>
   </div>
-  <button
-    pa-button
-    pa-size="lg"
-    class="md:self-center md:min-w-[230px] text-sm md:text-md"
-  >
-    Оформить
-  </button>
+  <div *ngIf="!(isLoginIn$ | async); else checkoutButton" class="text-center">
+    Для оформления заказа неоходимо
+    <a
+      class="text-primary"
+      [routerLink]="['/', 'auth', 'login']"
+      [queryParams]="{redirectTo: 'cart'}"
+    >
+      Войти</a
+    >
+    или
+    <a
+      class="text-primary"
+      [routerLink]="['/', 'auth', 'register']"
+      [queryParams]="{redirectTo: 'cart'}"
+      >Зарегистрироваться</a
+    >
+  </div>
+  <ng-template #checkoutButton>
+    <button
+      (click)="checkout()"
+      pa-button
+      pa-size="lg"
+      class="md:self-center md:min-w-[230px] text-sm md:text-md"
+    >
+      Оформить
+    </button>
+  </ng-template>
 </div>

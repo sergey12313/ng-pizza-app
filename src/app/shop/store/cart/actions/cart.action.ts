@@ -44,3 +44,5 @@ export const removeCartAction = createAction(
   CartActionTypes.CART_ITEM_REMOVE,
   props<{id: string}>()
 );
+export const cartClearAction = createAction(CartActionTypes.CART_CLEAR);
+export const cartCheckoutAction = createAction(CartActionTypes.CART_CHECKOUT);

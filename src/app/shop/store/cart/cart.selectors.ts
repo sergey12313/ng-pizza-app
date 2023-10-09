@@ -8,6 +8,13 @@ export const cartCountSelector = createSelector(cartFeatureSelector, (state) =>
   state.cartItems.reduce((acc, item) => acc + item.count, 0)
 );
 
+export const cartSumSelector = createSelector(cartFeatureSelector, (state) =>
+  state.cartProductItems.data.reduce(
+    (acc, item) => acc + item.count * item.price,
+    0
+  )
+);
+
 export const cartItemsSelector = createSelector(
   cartFeatureSelector,
   (state) => state.cartItems

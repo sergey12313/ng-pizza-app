@@ -16,6 +16,7 @@ import {
   getCurrentUserSuccessAction,
 } from './actions/get-current-user.action';
 import {cleanValidationErrorsAction} from './actions/clear-validation-errors.action';
+import {logoutCompleteAction} from './actions/logout.action';
 
 const initialState: AuthStateInterface = {
   isLoading: false,
@@ -31,6 +32,12 @@ export const authReducer = createReducer(
   on(cleanValidationErrorsAction, (state) => ({
     ...state,
     validationErrors: null,
+  })),
+  on(logoutCompleteAction, (state) => ({
+    ...state,
+    isLoggedIn: false,
+    token: null,
+    currentUser: null,
   })),
   on(loginAction, registerAction, (state) => ({
     ...state,

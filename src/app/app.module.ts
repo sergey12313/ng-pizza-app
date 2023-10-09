@@ -10,6 +10,8 @@ import * as loginEffect from './shared/store/auth/effects/login.effect';
 import * as registerEffect from './shared/store/auth/effects/register.effect';
 import * as cleanValidationEffect from './shared/store/auth/effects/navigated.effect';
 import * as getCurrentUserEffect from './shared/store/auth/effects/get-current-user.effect';
+import * as logoutEffect from './shared/store/auth/effects/logout.effect';
+import * as redirectEffect from './shared/store/auth/effects/redirect.effect';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {StoreRouterConnectingModule, routerReducer} from '@ngrx/router-store';
 import {AuthInterceptor} from './shared/services/auth.interceptor';
@@ -26,6 +28,8 @@ import {AuthInterceptor} from './shared/services/auth.interceptor';
       {...registerEffect},
       {...cleanValidationEffect},
       {...getCurrentUserEffect},
+      {...logoutEffect},
+      {...redirectEffect},
     ]),
     StoreRouterConnectingModule.forRoot(),
   ],
