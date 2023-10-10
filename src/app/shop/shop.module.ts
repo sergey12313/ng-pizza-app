@@ -35,6 +35,7 @@ import * as getProductEffect from './store/product/effects/get-product.effect';
 import * as getCartProductsEffect from './store/cart/effects/get-cart-product.effect';
 import * as hydrateEffect from './store/cart/effects/hydrate.effect';
 import * as redirectEffect from './store/cart/effects/redirect.effect';
+import * as toastEffect from './store/cart/effects/toast.effect';
 import {productsReducer} from './store/products/products.reducer';
 import {HttpClientModule} from '@angular/common/http';
 import {productReducer} from './store/product/product.reducer';
@@ -91,6 +92,7 @@ const routes = [
       {...getCartProductsEffect},
       {...hydrateEffect},
       {...redirectEffect},
+      {...toastEffect},
     ]),
     StoreModule.forFeature('products', productsReducer),
     StoreModule.forFeature('product', productReducer),

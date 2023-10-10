@@ -15,12 +15,19 @@ import * as redirectEffect from './shared/store/auth/effects/redirect.effect';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {StoreRouterConnectingModule, routerReducer} from '@ngrx/router-store';
 import {AuthInterceptor} from './shared/services/auth.interceptor';
+import {ToastrModule} from 'ngx-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right',
+    }),
     StoreModule.forRoot({auth: authReducer, router: routerReducer}),
     StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()}),
     EffectsModule.forRoot([
