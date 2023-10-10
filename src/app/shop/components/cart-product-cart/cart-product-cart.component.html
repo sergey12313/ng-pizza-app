@@ -24,7 +24,7 @@
   </div>
   <div class="flex gap-0.5 min-[300px]:gap-1 md:gap-1.5 ml-auto items-baseline">
     <button
-      (click)="decrement($event)"
+      (click)="decrement()"
       pa-button
       pa-size="sm"
       pa-appearance="secondary"
@@ -34,7 +34,7 @@
     </button>
     <span>{{ productProp.count }}</span>
     <button
-      (click)="increment($event)"
+      (click)="increment()"
       pa-button
       pa-size="sm"
       class="w-7 h-7 flex justify-center items-center"
@@ -42,6 +42,7 @@
       <ng-icon name="jamPlus"></ng-icon>
     </button>
     <button
+      (click)="remove()"
       pa-button
       pa-size="sm"
       pa-appearance="no-border"

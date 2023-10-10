@@ -19,19 +19,13 @@ export class CartProductCartComponent {
   };
 
   constructor(private store: Store) {}
-  increment(e: Event) {
-    e.preventDefault();
-    e.stopPropagation();
+  increment() {
     this.store.dispatch(incrementCartAction({id: String(this.productProp.id)}));
   }
-  decrement(e: Event) {
-    e.preventDefault();
-    e.stopPropagation();
+  decrement() {
     this.store.dispatch(decrementCartAction({id: String(this.productProp.id)}));
   }
-  remove(e: Event) {
-    e.preventDefault();
-    e.stopPropagation();
+  remove() {
     this.store.dispatch(removeCartAction({id: String(this.productProp.id)}));
   }
 }
